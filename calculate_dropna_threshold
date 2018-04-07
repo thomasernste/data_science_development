@@ -1,0 +1,27 @@
+NOT FINISHED. WILL COMPLETE LATER 4.7.2018
+
+'''
+
+I created this program to make it very easy to set and calculate a reasonable threshold for dropping a Pandas Series from a DataFrame based on the proportion of null values in the Series. This program allows the user to enter a dataframe, column name, and threshold value.
+
+Notice that in the Pandas documentation (see below) that the 'dropna' method has an argument "thresh" the user can enter as an integer, 'n', which stipulates that the column should be dropped if it contains fewer than 'n' values).
+
+DataFrame.dropna(axis=0, how='any', thresh=None, subset=None, inplace=False)[source]
+
+As an integer, however, this threshold value is not particularly useful. But what if you Oftentimes, however, a column will be missing only some values but not all. It is then up to the user to decide whether to drop a column entirely or keep it and deal with the null values. But how should the user decide whether or not to drop a column?
+
+One common and effective way to deal with missing data is to set a threshold for dropping a column based on the proportion of missing values in the column. I have seen suggestions that a column should contain at least 70% non-null values for the user to keep that column. I have also seen that this value should be higher, like 75% or 80% or more.
+
+
+
+This threshold value must be entered as an integer. 
+
+
+
+
+This is a function that  determining series threshold for dropping column
+'''
+def dropna_thresh(dataframe, column):
+    column_na_threshold = 0
+    column_na_threshold = 0.70*len(dataframe[column])
+    return column_na_threshold
